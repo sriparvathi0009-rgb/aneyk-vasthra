@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aneyk Vasthra | Timeless Ethnic Wear</title>
+  <meta name="description" content="Discover timeless sarees, lehengas, and elegant ethnic wear at Aneyk Vasthra. Explore thoughtfully curated styles for every celebration.">
+  <meta name="theme-color" content="#322217">
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+  
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Announcement Bar -->
+  <div class="announcement-bar">
+    Complimentary Luxury Gift Box & Express Delivery Across India on Orders Above ₹2,999
+  </div>
+
+  <!-- Header / Navigation -->
+  <header class="navbar">
+    <div class="nav-container">
+      <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle Menu">
+        <i class="fa-solid fa-bars"></i>
+      </button>
+
+      <a href="#" class="brand-logo" onclick="app.showPage('home')">
+        <svg class="logo-leaf-icon" viewBox="0 0 100 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M50 110 C50 70 30 40 10 30 C30 30 45 45 50 65 C55 45 70 30 90 30 C70 40 50 70 50 110 Z" fill="#B38F6A"/>
+          <path d="M50 110 Q48 60 25 15 M50 110 Q52 60 75 15" stroke="#B38F6A" stroke-width="3" fill="none"/>
+        </svg>
+        <span class="brand-title">ANEYK VASTHRA</span>
+        <span class="brand-tagline">TIMELESS . TRADITIONAL . YOU</span>
+      </a>
+
+      <nav class="nav-links" id="navLinks">
+        <a href="#home" class="nav-link active" onclick="app.showPage('home')">Home</a>
+        <a href="#shop" class="nav-link" onclick="app.filterCategory('all'); app.showPage('shop');">All Collections</a>
+        <a href="#shop" class="nav-link" onclick="app.filterCategory('sarees'); app.showPage('shop');">Silk Sarees</a>
+        <a href="#shop" class="nav-link" onclick="app.filterCategory('lehengas'); app.showPage('shop');">Lehengas</a>
+        <a href="#shop" class="nav-link" onclick="app.filterCategory('anarkalis'); app.showPage('shop');">Anarkalis & Suits</a>
+      </nav>
+
+      <div class="nav-actions">
+        <div class="search-box">
+          <i class="fa-solid fa-magnifying-glass search-icon"></i>
+          <input type="text" id="searchInput" placeholder="Search silk sarees, suits..." oninput="app.handleSearch(this.value)">
+        </div>
+
+        <button class="icon-btn" onclick="app.toggleWishlistDrawer()" aria-label="Wishlist">
+          <i class="fa-regular fa-heart"></i>
+          <span class="badge" id="wishlistBadge">0</span>
+        </button>
+
+        <button class="icon-btn" onclick="app.toggleCartDrawer()" aria-label="Bag">
+          <i class="fa-solid fa-bag-shopping"></i>
+          <span class="badge" id="cartBadge">0</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Dynamic Container -->
+  <main id="appMain">
+    
+    <!-- HOME PAGE -->
+    <section id="pageHome" class="page-section">
+      <!-- Hero Banner -->
+      <div class="hero-banner">
+        <div class="hero-overlay"></div>
+        <img src="https://images.unsplash.com/photo-1610030469983-98e550d6193c?auto=format&fit=crop&q=80&w=1600" alt="Aneyk Vasthra Collection" class="hero-bg-img">
+        <div class="hero-content">
+          <p class="hero-subtitle">TRADITION MEETS MODERN YOU</p>
+          <h1 class="hero-title">Style that feels like you.</h1>
+          <p class="hero-desc">Discover timeless sarees, statement lehengas, and beautifully crafted ethnic wear for every celebration.</p>
+          <button class="btn btn-primary" onclick="app.showPage('shop')">EXPLORE COLLECTION</button>
+        </div>
+      </div>
+
+      <!-- Palette Intro Banner -->
+      <section class="section-container text-center">
+        <div class="quote-box">
+          <p class="quote-text">"Not just clothes, but a story of you."</p>
+          <p class="quote-sub">— Timeless elegance in every thread</p>
+        </div>
+      </section>
+
+      <!-- Category Spotlight -->
+      <section class="section-container">
+        <h2 class="section-title">Curated Categories</h2>
+        <div class="category-grid">
+          <div class="category-card" onclick="app.filterCategory('sarees'); app.showPage('shop');">
+            <img src="https://images.unsplash.com/photo-1610030469983-98e550d6193c?auto=format&fit=crop&q=80&w=600" alt="Traditional silk saree collection" loading="lazy">
+            <div class="category-overlay">
+              <h3>Kanjivaram & Silk Sarees</h3>
+              <span>Shop Collection <i class="fa-solid fa-arrow-right"></i></span>
+            </div>
+          </div>
+          <div class="category-card" onclick="app.filterCategory('lehengas'); app.showPage('shop');">
+            <img src="https://images.unsplash.com/photo-1583391733956-3750e0ff4e8b?auto=format&fit=crop&q=80&w=600" alt="Heritage lehenga collection" loading="lazy">
+            <div class="category-overlay">
+              <h3>Heritage Lehengas</h3>
+              <span>Shop Collection <i class="fa-solid fa-arrow-right"></i></span>
+            </div>
+          </div>
+          <div class="category-card" onclick="app.filterCategory('anarkalis'); app.showPage('shop');">
+            <img src="https://images.unsplash.com/photo-1595777457583-95e059d581b8?auto=format&fit=crop&q=80&w=600" alt="Anarkalis and designer suits" loading="lazy">
+            <div class="category-overlay">
+              <h3>Anarkalis & Designer Suits</h3>
+              <span>Shop Collection <i class="fa-solid fa-arrow-right"></i></span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Featured Products Grid -->
+      <section class="section-container">
+        <div class="section-header">
+          <div>
+            <h2 class="section-title" style="margin-bottom:0.25rem;">New Arrival Highlights</h2>
+            <p style="color:var(--deep-coffee); opacity:0.8; font-size:0.9rem;">Handpicked artisanal creations crafted with royal detail</p>
+          </div>
+          <button class="btn btn-secondary" onclick="app.showPage('shop')">View All Items</button>
+        </div>
+        <div class="product-grid" id="homeFeaturedGrid"></div>
+      </section>
+    </section>
+
+    <!-- SHOP / CATALOG PAGE -->
+    <section id="pageShop" class="page-section d-none">
+      <div class="shop-container">
+        <!-- Sidebar Filters -->
+        <aside class="shop-sidebar" id="shopSidebar">
+          <div class="filter-header">
+            <h3>Filters</h3>
+            <button class="reset-btn" onclick="app.resetFilters()">Clear All</button>
+          </div>
+
+          <div class="filter-group">
+            <label class="filter-label">Category</label>
+            <div class="filter-options">
+              <label><input type="radio" name="catFilter" value="all" checked onchange="app.applyFilters()"> All Categories</label>
+              <label><input type="radio" name="catFilter" value="sarees" onchange="app.applyFilters()"> Silk Sarees</label>
+              <label><input type="radio" name="catFilter" value="lehengas" onchange="app.applyFilters()"> Bridal Lehengas</label>
+              <label><input type="radio" name="catFilter" value="anarkalis" onchange="app.applyFilters()"> Anarkalis & Suits</label>
+            </div>
+          </div>
+
+          <div class="filter-group">
+            <label class="filter-label">Max Price (₹)</label>
+            <input type="range" id="priceRange" min="2000" max="25000" step="1000" value="25000" oninput="app.updatePriceLabel(this.value); app.applyFilters();">
+            <div style="display:flex; justify-content:space-between; font-size:0.85rem; color:var(--deep-coffee); margin-top:4px;">
+              <span>₹2,000</span>
+              <span id="priceValue">₹25,000</span>
+            </div>
+          </div>
+
+          <div class="filter-group">
+            <label class="filter-label">Fabric / Material</label>
+            <div class="filter-options">
+              <label><input type="checkbox" value="Pure Silk" class="fabric-checkbox" onchange="app.applyFilters()"> Pure Silk</label>
+              <label><input type="checkbox" value="Chanderi" class="fabric-checkbox" onchange="app.applyFilters()"> Chanderi</label>
+              <label><input type="checkbox" value="Velvet" class="fabric-checkbox" onchange="app.applyFilters()"> Velvet</label>
+              <label><input type="checkbox" value="Georgette" class="fabric-checkbox" onchange="app.applyFilters()"> Georgette</label>
+              <label><input type="checkbox" value="Organza" class="fabric-checkbox" onchange="app.applyFilters()"> Organza</label>
+            </div>
+          </div>
+
+          <div class="filter-group">
+            <label class="filter-label">Select Size</label>
+            <div class="size-pills">
+              <button class="size-pill" onclick="app.toggleSizeFilter(this, 'Free Size')">Free Size</button>
+              <button class="size-pill" onclick="app.toggleSizeFilter(this, 'S')">S</button>
+              <button class="size-pill" onclick="app.toggleSizeFilter(this, 'M')">M</button>
+              <button class="size-pill" onclick="app.toggleSizeFilter(this, 'L')">L</button>
+              <button class="size-pill" onclick="app.toggleSizeFilter(this, 'XL')">XL</button>
+            </div>
+          </div>
+        </aside>
+
+        <!-- Main Product Area -->
+        <div class="shop-content">
+          <div class="shop-toolbar">
+            <div id="productCount" style="font-weight: 500; font-size:0.95rem;">Showing items</div>
+            <div class="sort-box">
+              <label for="sortSelect">Sort By: </label>
+              <select id="sortSelect" onchange="app.applyFilters()">
+                <option value="popular">Recommended</option>
+                <option value="low-high">Price: Low to High</option>
+                <option value="high-low">Price: High to Low</option>
+                <option value="newest">New Arrivals</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="product-grid" id="catalogProductGrid"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CHECKOUT PAGE -->
+    <section id="pageCheckout" class="page-section d-none">
+      <div class="checkout-container">
+        <div class="checkout-steps">
+          <div class="step active" id="step1Indicator">1. Delivery Address</div>
+          <div class="step" id="step2Indicator">2. Payment & Place Order</div>
+        </div>
+
+        <div class="checkout-grid">
+          <!-- Left Forms -->
+          <div class="checkout-main">
+            <!-- Step 1 Form -->
+            <form id="addressForm" onsubmit="app.handleAddressSubmit(event)">
+              <h3 class="section-title" style="font-size:1.4rem;">Shipping Details</h3>
+              <div class="form-row">
+                <div class="form-group">
+                  <label>Full Name *</label>
+                  <input type="text" id="custName" required placeholder="e.g. Ananya Sharma">
+                </div>
+                <div class="form-group">
+                  <label>Mobile Number *</label>
+                  <input type="tel" id="custPhone" pattern="[0-9]{10}" required placeholder="10-digit mobile number">
+                </div>
+              </div>
+              <div class="form-group">
+                <label>Street Address / Flat No / Landmark *</label>
+                <input type="text" id="custAddress" required placeholder="House/Flat No., Building Name, Street">
+              </div>
+              <div class="form-row">
+                <div class="form-group">
+                  <label>Pincode *</label>
+                  <input type="text" id="custPincode" pattern="[0-9]{6}" required placeholder="6-digit Pincode">
+                </div>
+                <div class="form-group">
+                  <label>City *</label>
+                  <input type="text" id="custCity" required placeholder="e.g. Chennai">
+                </div>
+                <div class="form-group">
+                  <label>State *</label>
+                  <input type="text" id="custState" required placeholder="e.g. Tamil Nadu">
+                </div>
+              </div>
+              <button type="submit" class="btn btn-primary" style="width:100%; margin-top:1rem;">CONTINUE TO PAYMENT</button>
+            </form>
+
+            <!-- Step 2 Payment (Hidden initially) -->
+            <div id="paymentSection" class="d-none">
+              <h3 class="section-title" style="font-size:1.4rem;">Select Payment Option</h3>
+              
+              <div class="payment-methods">
+                <label class="payment-card">
+                  <input type="radio" name="payMethod" value="UPI" checked onchange="app.togglePaymentDetails('upi')">
+                  <div>
+                    <strong>Instant UPI Payment</strong>
+                    <div style="font-size:0.8rem; opacity:0.8;">Google Pay, PhonePe, Paytm, BHIM</div>
+                  </div>
+                </label>
+
+                <div id="upiDetails" class="payment-subbox">
+                  <p style="font-size:0.85rem; margin-bottom:8px;">Enter your Virtual Payment Address (VPA):</p>
+                  <input type="text" id="upiIdInput" placeholder="username@upi or 9876543210@paytm" class="form-control" style="width:100%; padding:8px; border:1px solid var(--muted-gold);">
+                </div>
+
+                <label class="payment-card">
+                  <input type="radio" name="payMethod" value="Card" onchange="app.togglePaymentDetails('card')">
+                  <div>
+                    <strong>Credit / Debit Card</strong>
+                    <div style="font-size:0.8rem; opacity:0.8;">Visa, Mastercard, RuPay, Amex</div>
+                  </div>
+                </label>
+
+                <div id="cardDetails" class="payment-subbox d-none">
+                  <div class="form-group">
+                    <input type="text" placeholder="Card Number (16 digits)" maxlength="16">
+                  </div>
+                  <div class="form-row">
+                    <input type="text" placeholder="MM/YY" maxlength="5">
+                    <input type="password" placeholder="CVV" maxlength="3">
+                  </div>
+                </div>
+
+                <label class="payment-card">
+                  <input type="radio" name="payMethod" value="COD" onchange="app.togglePaymentDetails('cod')">
+                  <div>
+                    <strong>Cash on Delivery (COD)</strong>
+                    <div style="font-size:0.8rem; opacity:0.8;">Pay cash at doorstep (Extra ₹99 COD fee applies)</div>
+                  </div>
+                </label>
+              </div>
+
+              <div style="display:flex; gap:1rem; margin-top:1.5rem;">
+                <button type="button" class="btn btn-secondary" onclick="app.backToAddress()">Back</button>
+                <button type="button" class="btn btn-primary" style="flex:1;" onclick="app.processPayment()">PAY & PLACE ORDER</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right Order Summary -->
+          <div class="checkout-summary">
+            <h3>Order Summary</h3>
+            <div id="checkoutItemsList" class="checkout-items-mini"></div>
+            
+            <div class="summary-line">
+              <span>Subtotal</span>
+              <span id="chkSubtotal">₹0</span>
+            </div>
+            <div class="summary-line">
+              <span>Shipping</span>
+              <span style="color:green; font-weight:600;">FREE</span>
+            </div>
+            <div class="summary-line d-none" id="codFeeRow">
+              <span>COD Handling Charge</span>
+              <span>₹99</span>
+            </div>
+            <div class="summary-line total">
+              <span>Total Payable</span>
+              <span id="chkGrandTotal">₹0</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ORDER CONFIRMATION PAGE -->
+    <section id="pageOrderSuccess" class="page-section d-none">
+      <div class="order-success-card">
+        <div class="success-icon"><i class="fa-solid fa-check"></i></div>
+        <h2 style="font-family:'Playfair Display', serif; font-size:2rem; color:var(--deep-coffee); margin-bottom:0.5rem;">Thank You for Your Order!</h2>
+        <p style="color:var(--deep-coffee); opacity:0.8;">Your order has been placed successfully. A confirmation message has been sent to your registered contact.</p>
+        
+        <div class="order-id-box">
+          Order Reference: <strong id="successOrderId">AV-982314</strong>
+        </div>
+
+        <div style="text-align:left; background:var(--warm-ivory); padding:1rem; border-radius:6px; margin:1.5rem 0;">
+          <h4 style="margin-bottom:0.5rem; font-family:'Playfair Display';">Delivery Timeline</h4>
+          <p style="font-size:0.85rem; line-height:1.4;">Your artisanal outfit is currently undergoing custom quality checks and hand-packing in our luxury signature box. Estimated delivery: <strong>3 - 5 Business Days</strong>.</p>
+        </div>
+
+        <div style="display:flex; justify-content:center; gap:1rem;">
+          <button class="btn btn-primary" onclick="app.showPage('home')">Continue Shopping</button>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- PRODUCT DETAIL MODAL (PDP) -->
+  <div class="modal-backdrop" id="productModal" role="dialog" aria-modal="true" aria-label="Product details">
+    <div class="modal-card">
+      <button class="modal-close" onclick="app.closeProductModal()"><i class="fa-solid fa-xmark"></i></button>
+      <div class="modal-grid" id="modalProductContent"></div>
+    </div>
+  </div>
+
+  <!-- CART SLIDING DRAWER -->
+  <div class="drawer-overlay" id="cartOverlay" onclick="app.toggleCartDrawer()"></div>
+  <div class="drawer" id="cartDrawer" role="dialog" aria-modal="true" aria-label="Shopping bag">
+    <div class="drawer-header">
+      <div style="font-family:'Playfair Display', serif; font-size:1.2rem; font-weight:600;">Your Shopping Bag</div>
+      <button class="drawer-close" onclick="app.toggleCartDrawer()"><i class="fa-solid fa-xmark"></i></button>
+    </div>
+    <div class="drawer-body" id="cartDrawerItems"></div>
+    <div class="drawer-footer">
+      <div class="summary-line">
+        <span>Subtotal</span>
+        <span id="cartDrawerSubtotal" style="font-weight:600;">₹0</span>
+      </div>
+      <p style="font-size:0.75rem; color:#777; margin-bottom:1rem;">Taxes and shipping calculated at checkout.</p>
+      <button class="btn btn-primary" style="width:100%;" onclick="app.goToCheckout()">PROCEED TO CHECKOUT</button>
+    </div>
+  </div>
+
+  <!-- WISHLIST DRAWER -->
+  <div class="drawer-overlay" id="wishlistOverlay" onclick="app.toggleWishlistDrawer()"></div>
+  <div class="drawer" id="wishlistDrawer" role="dialog" aria-modal="true" aria-label="Saved wishlist">
+    <div class="drawer-header">
+      <div style="font-family:'Playfair Display', serif; font-size:1.2rem; font-weight:600;">Your Saved Wishlist</div>
+      <button class="drawer-close" onclick="app.toggleWishlistDrawer()"><i class="fa-solid fa-xmark"></i></button>
+    </div>
+    <div class="drawer-body" id="wishlistDrawerItems"></div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-container">
+      <div class="footer-col">
+        <h4 class="brand-title" style="font-size:1.3rem;">ANEYK VASTHRA</h4>
+        <p style="font-size:0.85rem; color:var(--soft-cream); line-height:1.6;">Celebrating India's heritage weaves with contemporary refinement. Every piece tells an authentic story of handloom mastery.</p>
+      </div>
+
+      <div class="footer-col">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="#shop" onclick="app.filterCategory('sarees'); app.showPage('shop');">Silk Sarees</a></li>
+          <li><a href="#shop" onclick="app.filterCategory('lehengas'); app.showPage('shop');">Bridal Lehengas</a></li>
+          <li><a href="#shop" onclick="app.filterCategory('anarkalis'); app.showPage('shop');">Anarkalis & Suits</a></li>
+          <li><a href="#">Our Artisans</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Customer Care</h4>
+        <ul>
+          <li><a href="#">Track Order Status</a></li>
+          <li><a href="#">Shipping & Returns Policy</a></li>
+          <li><a href="#">Sizing Guide</a></li>
+          <li><a href="#">Authenticity Guarantee</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Connect With Us</h4>
+        <div style="display:flex; gap:12px; margin-bottom:12px;">
+          <a href="#" style="color:var(--champagne-beige); font-size:1.2rem;"><i class="fa-brands fa-instagram"></i></a>
+          <a href="#" style="color:var(--champagne-beige); font-size:1.2rem;"><i class="fa-brands fa-facebook"></i></a>
+          <a href="#" style="color:var(--champagne-beige); font-size:1.2rem;"><i class="fa-brands fa-pinterest"></i></a>
+          <a href="#" style="color:var(--champagne-beige); font-size:1.2rem;"><i class="fa-brands fa-whatsapp"></i></a>
+        </div>
+        <p style="font-size:0.8rem; color:var(--soft-cream);">Support: care@aneykvasthra.com | +91 98765 43210</p>
+      </div>
+    </div>
+    
+    <div style="text-align:center; padding-top:2rem; margin-top:2rem; border-top:1px solid rgba(255,255,255,0.1); font-size:0.8rem; color:var(--soft-cream);">
+      © 2026 ANEYK VASTHRA Pvt. Ltd. All rights reserved. Premium Ethnic Fashion Platform.
+    </div>
+  </footer>
+
+  <noscript><p class="section-container">Please enable JavaScript to use the shopping cart and product filters.</p></noscript>
+
+  <!-- Keep app.js after the page markup so its elements are available when it loads. -->
+  <script src="app.js" defer></script>
+</body>
+</html>
